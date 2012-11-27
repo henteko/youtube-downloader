@@ -1,0 +1,80 @@
+= youtube-downloader
+
+== About
+
+The script is downloader from YouTube.
+
+== Requirement
+
+* After Gauche 0.9.3 release.
+* Network that can connect to YouTube
+
+== Command format
+
+{{{
+yd [options] [URL ...]
+}}}
+
+== Example
+
+{{{
+yd "http://www.youtube.com/watch?v=uHlDtZ6Oc3s"
+}}}
+
+
+== Option
+
+=== -h, --help
+
+Print help text and exit.
+
+=== -s, --show
+
+Print available video format code.
+
+=== -f FORMAT, --format=FORMAT
+
+Video format code.
+
+You can select any of video format code that was printed by show option.
+
+Refer the list of YouTube formats on Wikipedia.
+
+[[http://en.wikipedia.org/wiki/YouTube#Quality_and_codecs]]
+
+If omitted, choose the highest quality.
+
+=== -o TEMPLATE, --output=TEMPLATE
+
+The -o option allows users to indicate a template for the output file names.
+
+The basic usage is not to set any template arguments when downloading a single file, like in yd -o funny_video.flv "http://some/video".
+
+It may contain special sequences that will be replaced when downloading each video.
+
+The special sequences have the format %(NAME)s.
+
+Allowed names are:
+
+|$id        |The sequence will be replaced by the video identifier.                         |
+|$title     |The sequence will be replaced by the literal video title.                      |
+|$ext       |The sequence will be replaced by the appropriate extension (like flv or mp4).  |
+|$timestamp |The sequence will be replaced by the Unix epoch when creating the file.        |
+
+=== -a FILE, --batch-file=FILE
+
+File containing URLs to download.
+
+=== -c, --continue
+
+Resume partially downloaded files.
+
+== rtmp
+
+Not support rtmo
+
+== License
+
+yd.scm is BSD style license.
+
+See also COPYING.
